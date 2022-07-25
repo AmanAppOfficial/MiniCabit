@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/login_layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/_80sdp"
+        android:scaleType="fitXY"
+        android:layout_width="@dimen/_200sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:src="@drawable/taxi"
+        android:layout_height="@dimen/_180sdp"/>
+    <TextView
+        android:layout_below="@+id/logo"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY"
+        android:layout_width="wrap_content"
+        android:text="@string/mini_cabs"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_margin="@dimen/_20sdp"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/google_signin_btn"
+            android:layout_width="match_parent"
+            android:text="@string/fui_sign_in_with_google"
+            android:textSize="17sp"
+            android:padding="@dimen/_15sdp"
+            android:drawableLeft="@drawable/fui_ic_googleg_color_24dp"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/phone_siginin_btn"
+            android:layout_width="match_parent"
+            android:text="@string/fui_sign_in_with_phone"
+            android:textSize="17sp"
+            android:padding="@dimen/_15sdp"
+            android:drawableLeft="@drawable/phone_icon"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:indeterminateTint="@color/white"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

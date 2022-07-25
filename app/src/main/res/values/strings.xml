@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MiniCabit</string>
+    <string name="mini_cabs">Mini Cabs</string>
+    <string name="phone_number_input">Enter Phone Number</string>
+    <string name="otp_input">Enter OTP</string>
+    <string name="otp_sent">OTP Sent</string>
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="first_name_hint">First name</string>
+    <string name="last_name_hint">Last name</string>
+    <string name="email_hint">someone@example.com</string>
+    <string name="phone_number_hint">91 123456789</string>
+    <string name="error_invalid_otp">Invalid OTP</string>
+    <string name="error_location_permission">Grant Location Permission</string>
+    <string name="error_empty_fields">"Fields Empty"</string>
+    <string name="error_authentication_failed">Authentication failed</string>
+</resources>

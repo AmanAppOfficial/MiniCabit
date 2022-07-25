@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "946337567500",
+    "project_id": "minicabit-49dbe",
+    "storage_bucket": "minicabit-49dbe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946337567500:android:a3092bee77b2984d37ef29",
+        "android_client_info": {
+          "package_name": "e.aman.minicabit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946337567500-5uc5rccb9l7aq7r927qvairg7a2gmtb3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "e.aman.minicabit",
+            "certificate_hash": "d85e73ec8a27d24a3598ea4573c947426893b2eb"
+          }
+        },
+        {
+          "client_id": "946337567500-l7mak6mrsfhmvbrtcpsc3ioounlidki0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCI5iVKCB1jIqjo9k-Faq9_e6uIG6JFnvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946337567500-l7mak6mrsfhmvbrtcpsc3ioounlidki0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
