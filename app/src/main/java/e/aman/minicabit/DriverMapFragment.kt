@@ -61,6 +61,7 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
                               savedInstanceState: Bundle?): View? {
         binding = FragmentDriverMapBinding.inflate(inflater, container, false)
         currUserId = FirebaseAuth.getInstance().currentUser!!.uid
+
         //initialize map
         val mapFragment = childFragmentManager.findFragmentById(e.aman.minicabit.R.id.google_map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
@@ -132,14 +133,16 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
                         mMap.uiSettings.isMyLocationButtonEnabled = true
 
                         mMap.setOnMyLocationButtonClickListener {
-                            /** get last location and move camera... **/
-                            fusedLocationProviderClient.lastLocation.addOnSuccessListener {
-                                var newPos = LatLng(it!!.latitude , it!!.longitude)
-                                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newPos , 18f))
+                            try {
+                                /** get last location and move camera... **/
+                                fusedLocationProviderClient.lastLocation.addOnSuccessListener {
+                                    var newPos = LatLng(it!!.latitude, it!!.longitude)
+                                    mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(newPos, 18f))
+                                }
                             }
+                            catch(e: Exception){}
                             true
                         }
-
                     }
                     override fun onPermissionRationaleShouldBeShown(
                         permissions: MutableList<PermissionRequest>?,
@@ -153,7 +156,6 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
 
     override fun onResume() {
         super.onResume()
-
         onlineRef.addValueEventListener(onlineEventListener)
     }
 

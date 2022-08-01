@@ -11,9 +11,11 @@ import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.storage.FirebaseStorage
 import e.aman.minicabit.databinding.ActivityRegisterBinding
 import e.aman.minicabit.models.User
+import e.aman.minicabit.service.FirebaseMessaging
 import e.aman.minicabit.utils.Constants
 import e.aman.minicabit.utils.PermissionHandler
 
@@ -115,6 +117,7 @@ class RegisterActivity : AppCompatActivity() {
             return null
         }
         return User(firstName.toString(), lastName.toString(),
-            phone.toString(), email.toString(), imageUrl)
+            phone.toString(), email.toString(), imageUrl , "")
     }
+
 }
