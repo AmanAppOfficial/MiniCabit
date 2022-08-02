@@ -9,6 +9,7 @@ import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.messaging.FirebaseMessagingService
@@ -24,11 +25,14 @@ class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
     private var imageUrl = ""
     private var imagePath: Uri? = null
+    private lateinit var firebaseUser: FirebaseUser
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        firebaseUser = FirebaseAuth.getInstance().currentUser!!
 
         setupListener()
     }
@@ -75,7 +79,7 @@ class RegisterActivity : AppCompatActivity() {
     /** upload image to storage **/
     private fun uploadImage() {
         var storageRef = FirebaseStorage.getInstance().reference.child(Constants.PROFILE_IMAGE_REF +
-                FirebaseAuth.getInstance().currentUser!!.uid)
+                firebaseUser!!.uid)
 
         storageRef.putFile(imagePath!!).addOnSuccessListener{
             storageRef.downloadUrl.addOnSuccessListener {
@@ -91,7 +95,7 @@ class RegisterActivity : AppCompatActivity() {
 
         var user = createUser()
         if(user != null){
-            val currentUserId = FirebaseAuth.getInstance().currentUser!!.uid
+            val currentUserId = firebaseUser.uid
             val database = Firebase.database
             val driverRef = database.getReference(Constants.DRIVER_REF)
 
@@ -117,7 +121,7 @@ class RegisterActivity : AppCompatActivity() {
             return null
         }
         return User(firstName.toString(), lastName.toString(),
-            phone.toString(), email.toString(), imageUrl , "")
+            phone.toString(), email.toString(), imageUrl)
     }
 
 }

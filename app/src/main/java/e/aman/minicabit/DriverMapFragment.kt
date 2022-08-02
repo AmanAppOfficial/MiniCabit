@@ -37,7 +37,7 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
     private lateinit var fusedLocationProviderClient: FusedLocationProviderClient
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
-    //This is just for registering/de-registering the listener(online system)
+    /** This is just for registering/de-registering the listener(online system) **/
     private lateinit var onlineRef: DatabaseReference
     private lateinit var driversLocationRef: DatabaseReference
     private lateinit var currentUserRef: DatabaseReference
@@ -52,7 +52,6 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
         }
 
         override fun onCancelled(error: DatabaseError) {
-            Log.e("error" , error.message)
         }
 
     }
@@ -63,9 +62,8 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
         currUserId = FirebaseAuth.getInstance().currentUser!!.uid
 
         //initialize map
-        val mapFragment = childFragmentManager.findFragmentById(e.aman.minicabit.R.id.google_map) as SupportMapFragment?
+        val mapFragment = childFragmentManager.findFragmentById(R.id.google_map) as SupportMapFragment?
         mapFragment!!.getMapAsync(this)
-
         initLocation()
         return binding.root
     }
@@ -101,6 +99,7 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
             }
         }
 
+        /** main library to pick location **/
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(requireContext())
         //register fused location api with location callback
         fusedLocationProviderClient.requestLocationUpdates(locationRequest , locationCallback , Looper.myLooper())
@@ -119,11 +118,13 @@ class DriverMapFragment : Fragment(), OnMapReadyCallback{
         catch (e: Resources.NotFoundException) {
         }
 
+
         /** check location permission **/
         val permissions = listOf(
             Manifest.permission.ACCESS_FINE_LOCATION
         )
 
+         /** get callback for location permission **/
         Dexter.withContext(activity)
                 .withPermissions(permissions)
                 .withListener(object : MultiplePermissionsListener{
